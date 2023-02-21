@@ -1,0 +1,9 @@
+.edit-form__input {
+  border: 0;
+  padding: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px black solid;
+  font-size: 14px;
+  line-height: 1.21;
+  font-family: inherit;
+}
