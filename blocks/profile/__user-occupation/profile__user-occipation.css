@@ -13,6 +13,7 @@
     .profile__user-occupation {
       font-size: 14px;
       line-height: 1.21;
-      justify-self: center;
+      width: 100%;
+      text-align: center;
     }
   }

@@ -22,11 +22,11 @@
           />
           <div class="profile__info">
             <h1 class="profile__user-name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button"></button>
+            <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
             <p class="profile__user-occupation">Исследователь океана</p>
           </div>
         </div>
-        <button class="profile__add-button"></button>
+        <button class="profile__add-button" type="button" aria-label="Добавить"></button>
       </section>
       <!-- elements -->
       <section class="elements">
@@ -39,7 +39,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Карачаевск</h2>
-              <button type="button" class="elements__button"></button>
+              <button type="button" class="elements__button" aria-label="Нравится"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -50,7 +50,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Гора Эльбрус</h2>
-              <button type="button" class="elements__button"></button>
+              <button type="button" class="elements__button" aria-label="Нравится"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -61,7 +61,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Домбай</h2>
-              <button type="button" class="elements__button"></button>
+              <button type="button" class="elements__button" aria-label="Нравится"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -72,7 +72,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Мурманск</h2>
-              <button type="button" class="elements__button"></button>
+              <button type="button" class="elements__button" aria-label="Нравится"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -83,7 +83,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Алтай</h2>
-              <button type="button" class="elements__button"></button>
+              <button type="button" class="elements__button" aria-label="Нравится"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -94,7 +94,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Онежское озеро</h2>
-              <button type="button" class="elements__button"></button>
+              <button type="button" class="elements__button" aria-label="Нравится"></button>
             </div>
           </li>
         </ul>
@@ -107,18 +107,19 @@
     <!-- popup -->
     <section class="popup">
       <div class="popup__container">
-        <button type="button" class="popup__close-button"></button>
+        <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
         <h2 class="popup__user-name">Редактировать профиль</h2>
-        <form class="edit-form">
+        <form class="edit-form" name="form">
           <fieldset class="edit-form__textfields">
-            <input class="edit-form__input edit-form__input_text_name" />
-            <input class="edit-form__input edit-form__input_text_occupation" />
+            <input class="edit-form__input edit-form__input_text_name" name="username" />
+            <input class="edit-form__input edit-form__input_text_occupation" name="useroccupation" />
           </fieldset>
           <button
             type="submit"
             class="popup__saved"
             name="popup_save"
             value="save"
+            aria-label="Сохранить"
           >
             Сохранить
           </button>
