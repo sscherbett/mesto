@@ -3,7 +3,7 @@
   width: 18px;
   height: 19px;
   border: none;
-  position: absolute;  
+  position: absolute;
   top: 20px;
   right: 20px;
   background-color: transparent;
@@ -11,5 +11,5 @@
 }
 
 .elements__delete-button:hover {
-    opacity: .6;
+  opacity: 0.6;
 }
