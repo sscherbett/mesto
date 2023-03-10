@@ -1,4 +1,4 @@
-.popup__user-name {
+.popup__header {
     margin: 0;
     font-size: 24px;
     line-height: 1.2;
@@ -7,7 +7,7 @@
   }
   
   @media (max-width: 530px) {
-    .popup__user-name {
+    .popup__header {
       margin-bottom: 77px;
       font-size: 18px;
       line-height: 1.22;
