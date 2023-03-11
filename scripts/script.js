@@ -18,6 +18,7 @@ const addCardButton = document.querySelector(".profile__add-button");
 const addCardPopupCloseButton = addCardPopup.querySelector(
   ".popup__close-button"
 );
+const cardsContainer = document.querySelector(".elements__items");
 const addCardForm = addCardPopup.querySelector(".edit-form");
 const inputCardHeading = addCardForm.querySelector(
   ".edit-form__input_text_card-heading"
@@ -25,8 +26,10 @@ const inputCardHeading = addCardForm.querySelector(
 const inputCardLink = addCardForm.querySelector(
   ".edit-form__input_text_card-link"
 );
-
+const cardTemplate = document.querySelector("#elemntsTemplate").content;
 const openFullImagePopup = document.querySelector(".popup_type_full-image");
+const fullImage = openFullImagePopup.querySelector(".popup__full-image");
+const fullImageTitle = openFullImagePopup.querySelector(".popup__image-title");
 const closeFullImageButton = openFullImagePopup.querySelector(
   ".popup__close-button"
 );
@@ -71,6 +74,8 @@ editProfileButton.addEventListener("click", function () {
 
 addCardButton.addEventListener("click", function () {
   openPopup(addCardPopup);
+  inputCardHeading.value = '';
+  inputCardLink.value = '';
 });
 
 closeProfileButton.addEventListener("click", function () {
@@ -83,9 +88,7 @@ addCardPopupCloseButton.addEventListener("click", function () {
 
 editProfileForm.addEventListener("submit", handleEditFormSubmit);
 
-
 function createNewCard(card) {
-  const cardTemplate = document.querySelector("#elemntsTemplate").content;
   const newCard = cardTemplate.querySelector(".elements__item").cloneNode(true);
   const cardHeading = newCard.querySelector(".elements__title");
   const cardImage = newCard.querySelector(".elements__image");
@@ -101,10 +104,11 @@ function createNewCard(card) {
 }
 
 function addNewCard(item) {
-  const cardsContainer = document.querySelector(".elements__items");
   const cardElement = createNewCard(item);
   cardsContainer.prepend(cardElement);
 }
+
+initialCards.forEach(addNewCard);
 
 function handleLikeButton(evt) {
   evt.target.classList.toggle("elements__like-button_active");
@@ -114,14 +118,12 @@ function handleDeleteButton(evt) {
 }
 
 function openFullImage(evt) {
-  openPopup(openFullImagePopup);
-  const fullImage = document.querySelector(".popup__full-image");
-  const fullImageTitle = document.querySelector(".popup__image-title");
   const card = evt.target.closest(".elements__item");
   const cardText = card.querySelector(".elements__title");
   fullImage.src = evt.target.src;
   fullImage.alt = cardText.textContent;
   fullImageTitle.textContent = cardText.textContent;
+  openPopup(openFullImagePopup);
 }
 
-initialCards.forEach(addNewCard);
+
