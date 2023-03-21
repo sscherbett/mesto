@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <script src="./scripts/constants.js" defer></script>
     <script src="./scripts/script.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
 
   </head>
   <body class="page">
@@ -62,14 +63,16 @@
           <fieldset class="edit-form__textfields">
             <input
               class="edit-form__input edit-form__input_text_name"
-              name="username"
+              name="name"
               placeholder="Имя"
             />
+            <span class="edit-form__input-error edit-form__input-error_text_name"></span>
             <input
               class="edit-form__input edit-form__input_text_occupation"
-              name="useroccupation"
+              name="occupation"
               placeholder="Вид деятельности"
             />
+            <span class="edit-form__input-error edit-form__input-error_text_occupation"></span>
           </fieldset>
           <button
             type="submit"
@@ -100,10 +103,16 @@
               class="edit-form__input edit-form__input_text_card-heading"
               name="input-card-heading"
               placeholder="Название"
+
+              required
             />
+            <span class="edit-form__input-error edit-form__input-error_text_card-heading"></span>
             <input class="edit-form__input edit-form__input_text_card-link"
             name="input-card-link"
-            placeholder="Ссылка на картинку" />
+            placeholder="Ссылка на картинку"
+            type="url"
+            required />
+            <span class="edit-form__input-error edit-form__input-error_text_card-link"></span>
           </fieldset>
           <button
             type="submit"
