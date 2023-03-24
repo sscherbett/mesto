@@ -1,11 +1,11 @@
 .edit-form {
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: 12px;
   }
   
   @media (max-width: 530px) {
     .edit-form {
-      gap: 43px;
+      gap: 6px;
     }
    }

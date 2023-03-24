@@ -22,3 +22,9 @@
       font-size: 14px;
     }
   }
+
+  .popup__saved_disabled {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }

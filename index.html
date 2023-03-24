@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css" />
+    <script src="./scripts/validate.js" defer></script>
     <script src="./scripts/constants.js" defer></script>
     <script src="./scripts/script.js" defer></script>
-    <script src="./scripts/validate.js" defer></script>
-
   </head>
   <body class="page">
     <!-- header -->
@@ -41,9 +40,8 @@
         ></button>
       </section>
       <!-- elements cards-->
-      <section class="elements"> 
-        <ul class="elements__items"> 
-        </ul>
+      <section class="elements">
+        <ul class="elements__items"></ul>
       </section>
     </main>
     <!-- footer -->
@@ -59,20 +57,30 @@
           aria-label="Закрыть"
         ></button>
         <h2 class="popup__header">Редактировать профиль</h2>
-        <form class="edit-form" name="form">
+        <form class="edit-form" name="form" novalidate>
           <fieldset class="edit-form__textfields">
             <input
               class="edit-form__input edit-form__input_text_name"
               name="name"
               placeholder="Имя"
+              minlength="2"
+              maxlength="40"
+              required
             />
-            <span class="edit-form__input-error edit-form__input-error_text_name"></span>
+            <span
+              class="edit-form__input-error edit-form__input-error_text_name"
+            ></span>
             <input
               class="edit-form__input edit-form__input_text_occupation"
               name="occupation"
               placeholder="Вид деятельности"
+              minlength="2"
+              maxlength="200"
+              required
             />
-            <span class="edit-form__input-error edit-form__input-error_text_occupation"></span>
+            <span
+              class="edit-form__input-error edit-form__input-error_text_occupation"
+            ></span>
           </fieldset>
           <button
             type="submit"
@@ -97,22 +105,29 @@
           aria-label="Закрыть"
         ></button>
         <h2 class="popup__header">Новое место</h2>
-        <form class="edit-form" name="add-card">
+        <form class="edit-form" name="add-card" novalidate>
           <fieldset class="edit-form__textfields">
             <input
               class="edit-form__input edit-form__input_text_card-heading"
-              name="input-card-heading"
+              name="card-heading"
               placeholder="Название"
-
+              minlength="2"
+              maxlength="30"
               required
             />
-            <span class="edit-form__input-error edit-form__input-error_text_card-heading"></span>
-            <input class="edit-form__input edit-form__input_text_card-link"
-            name="input-card-link"
-            placeholder="Ссылка на картинку"
-            type="url"
-            required />
-            <span class="edit-form__input-error edit-form__input-error_text_card-link"></span>
+            <span
+              class="edit-form__input-error edit-form__input-error_text_card-heading"
+            ></span>
+            <input
+              class="edit-form__input edit-form__input_text_card-link"
+              name="card-link"
+              placeholder="Ссылка на картинку"
+              type="url"
+              required
+            />
+            <span
+              class="edit-form__input-error edit-form__input-error_text_card-link"
+            ></span>
           </fieldset>
           <button
             type="submit"
@@ -128,39 +143,34 @@
     </section>
 
     <!-- <image-popup> -->
-      <section class="popup popup_type_full-image">
-        <div class="popup__wrapper">
-          <button
-            type="button"
-            class="popup__close-button popup__close-button_type_full-image"
-            aria-label="Закрыть"
-          ></button>
-          <img class="popup__full-image"
-          src="#"
-          alt="">
-          <h2 class="popup__image-title"></h2>
-        </div>
-      </section>
+    <section class="popup popup_type_full-image">
+      <div class="popup__wrapper">
+        <button
+          type="button"
+          class="popup__close-button popup__close-button_type_full-image"
+          aria-label="Закрыть"
+        ></button>
+        <img class="popup__full-image" src="#" alt="" />
+        <h2 class="popup__image-title"></h2>
+      </div>
+    </section>
 
     <!-- template -->
     <template id="elemntsTemplate">
       <li class="elements__item">
-        <img 
-        src="#"
-        alt="#"
-        class="elements__image">
+        <img src="#" alt="#" class="elements__image" />
         <button
-        type="button"
-        class="elements__delete-button"
-        aria-label="Удалить"
+          type="button"
+          class="elements__delete-button"
+          aria-label="Удалить"
         ></button>
         <div class="elements__container">
           <h2 class="elements__title"></h2>
           <button
-          type="button"
-          class="elements__like-button"
-          aria-label="Нравится">
-        </button>
+            type="button"
+            class="elements__like-button"
+            aria-label="Нравится"
+          ></button>
         </div>
       </li>
     </template>
