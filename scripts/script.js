@@ -1,3 +1,15 @@
+import Card from './card.js';
+import { initialCards, validationConfig } from './constants.js';
+import FormValidator from './FormValidator.js';
+
+
+const forms = Array.from(document.querySelectorAll('.edit-form'));
+
+forms.forEach((form) => {
+  const formValidator = new FormValidator (validationConfig, form)
+  formValidator.enableValidation();
+})
+
 const editProfileButton = document.querySelector('.profile__edit-button');
 const editProfilePopup = document.querySelector('.popup_type_edit');
 const userNameElement = document.querySelector('.profile__user-name');
@@ -37,18 +49,6 @@ closeFullImageButton.addEventListener('click', function () {
 });
 
 addCardForm.addEventListener('submit', handleAddFormSubmit);
-
-function handleAddFormSubmit(evt) {
-  evt.preventDefault();
-  const card = {
-    name: inputCardHeading.value,
-    link: inputCardLink.value,
-    alt: inputCardHeading.value,
-  };
-  addNewCard(card);
-  closePopup(addCardPopup);
-  evt.target.reset();
-}
 
 function handleEscButton(evt) {
   if (evt.key === 'Escape') {
@@ -106,40 +106,35 @@ addCardPopupCloseButton.addEventListener('click', function () {
 
 editProfileForm.addEventListener('submit', handleEditFormSubmit);
 
+function handleAddFormSubmit(evt) {
+  evt.preventDefault();
+  const card = {
+    name: inputCardHeading.value,
+    link: inputCardLink.value,
+    alt: inputCardHeading.value,
+  };
+  addNewCard(card);
+  closePopup(addCardPopup);
+  evt.target.reset();
+}
+
+initialCards.forEach((card) => {
+  addNewCard(card);
+})
+
+function handleCardClick(name, link) {
+  fullImage.src = link;
+  fullImage.alt = name;
+  fullImageTitle.textContent = name;
+  openPopup(popupImage); 
+}
+
 function createNewCard(card) {
-  const newCard = cardTemplate.querySelector('.elements__item').cloneNode(true);
-  const cardHeading = newCard.querySelector('.elements__title');
-  const cardImage = newCard.querySelector('.elements__image');
-  const likeButton = newCard.querySelector('.elements__like-button');
-  likeButton.addEventListener('click', handleLikeButton);
-  const deleteButton = newCard.querySelector('.elements__delete-button');
-  deleteButton.addEventListener('click', handleDeleteButton);
-  cardImage.addEventListener('click', openFullImage);
-  cardHeading.textContent = card.name;
-  cardImage.src = card.link;
-  cardImage.alt = card.alt;
+  const newCard = new Card (card, '#elemntsTemplate', handleCardClick);
   return newCard;
 }
 
-function addNewCard(item) {
-  const cardElement = createNewCard(item);
-  cardsContainer.prepend(cardElement);
-}
-
-initialCards.forEach(addNewCard);
-
-function handleLikeButton(evt) {
-  evt.target.classList.toggle('elements__like-button_active');
-}
-function handleDeleteButton(evt) {
-  evt.target.closest('.elements__item').remove();
-}
-
-function openFullImage(evt) {
-  const card = evt.target.closest('.elements__item');
-  const cardText = card.querySelector('.elements__title');
-  fullImage.src = evt.target.src;
-  fullImage.alt = cardText.textContent;
-  fullImageTitle.textContent = cardText.textContent;
-  openPopup(popupImage);
+function addNewCard(card) {
+  const cardElement = createNewCard(card);
+  cardsContainer.prepend(cardElement.createNewCard());
 }
