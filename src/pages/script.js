@@ -50,7 +50,6 @@ function handleAddFormSubmit(cardData) {
   rendererCard(cardData);
 }
 
-
 buttonAddCard.addEventListener('click', () => {
   formCard.open();
 });
@@ -69,7 +68,11 @@ const section = new Section(
 section.renderItems();
 
 function rendererCard(item) {
+  section.addItem(createCard(item));
+}
+
+function createCard(item) {
   const cardElement = new Card(item, '#elementsTemplate', handleCardClick);
-  const newCard = cardElement.createNewCard();
-  section.addItem(newCard);
+  const card = cardElement.createNewCard();
+  return card;
 }
