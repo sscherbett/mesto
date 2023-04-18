@@ -40,3 +40,12 @@ export const validationConfig = {
   errorClassVisible: 'edit-form__input-error_visible',
   errorSelectorTemplate: '.edit-form__input-error_text_',
 };
+
+export const forms = Array.from(document.querySelectorAll('.edit-form'));
+export const buttonEditProfile = document.querySelector('.profile__edit-button');
+export const inputTextName = document.querySelector('.edit-form__input_text_name');
+export const inputTextOccupation = document.querySelector(
+  '.edit-form__input_text_occupation'
+);
+export const buttonAddCard = document.querySelector('.profile__add-button');
+export const formAddCard = document.querySelector('.edit-form_type_card')
