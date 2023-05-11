@@ -57,6 +57,7 @@ export default class FormValidator {
   }
 
   _setEventListeners() {
+
     this._inputList = Array.from(this._form.querySelectorAll(
       this._validationConfig.inputSelector
     ));
@@ -79,5 +80,6 @@ export default class FormValidator {
 
   enableValidation() {
     this._setEventListeners();
+    this._toggleButtonState();
   }
 }

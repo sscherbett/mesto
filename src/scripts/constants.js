@@ -48,4 +48,7 @@ export const inputTextOccupation = document.querySelector(
   '.edit-form__input_text_occupation'
 );
 export const buttonAddCard = document.querySelector('.profile__add-button');
-export const formAddCard = document.querySelector('.edit-form_type_card')
+export const formAddCard = document.querySelector('.edit-form_type_card');
+export const formChangeAvatar = document.querySelector('.edit-form_type_avatar');
+export const buttonEditAvatar = document.querySelector('.profile__avatar-container');
+
