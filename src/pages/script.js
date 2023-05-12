@@ -107,10 +107,7 @@ function handleCardClick(name, link) {
   popupFullImage.open(name, link);
 }
 
-const section = new Section(
-  { items: initialCards, renderer: rendererCard },
-  '.elements__items'
-);
+const section = new Section({ renderer: rendererCard }, '.elements__items');
 
 function rendererCard(item) {
   section.addItem(createCard(item));
@@ -137,7 +134,6 @@ const avatarValidation = new FormValidator(validationConfig, formChangeAvatar);
 buttonEditAvatar.addEventListener('click', () => {
   editAvatar.open();
   avatarValidation.enableValidation();
-
 });
 
 function changeAvatar(data) {
@@ -145,7 +141,7 @@ function changeAvatar(data) {
   api
     .addAvatar(data)
     .then((res) => {
-      document.querySelector('.profile__avatar').src = res.avatar;
+      user.setUserInfo(res);
       editAvatar.close();
     })
     .catch((error) => console.log(`Ошибка: ${error}`))
